@@ -4,10 +4,12 @@ import com.exercise.lottoland.game.game.model.GameHelper;
 import com.exercise.lottoland.game.game.model.GameStatisticsResponse;
 import com.exercise.lottoland.game.game.model.Player;
 import com.exercise.lottoland.game.game.service.IGameStatisticsResolver;
+import org.springframework.stereotype.Service;
 
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
+@Service
 public class IGameStatisticsResolverImpl implements IGameStatisticsResolver{
     @Override
     public GameStatisticsResponse resolve(Map<String, Player> players, AtomicLong gameStatistics) {
