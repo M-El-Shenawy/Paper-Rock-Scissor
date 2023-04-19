@@ -3,8 +3,8 @@ package com.exercise.lottoland.game.game.service.impl;
 import com.exercise.lottoland.game.game.service.IGameSolver;
 import org.springframework.stereotype.Service;
 
-import static com.exercise.lottoland.game.game.service.model.GameHelper.Move;
-import static com.exercise.lottoland.game.game.service.model.GameHelper.Result;
+import static com.exercise.lottoland.game.game.model.GameHelper.Move;
+import static com.exercise.lottoland.game.game.model.GameHelper.Result;
 
 @Service
 public class IGameSolverImpl implements IGameSolver {

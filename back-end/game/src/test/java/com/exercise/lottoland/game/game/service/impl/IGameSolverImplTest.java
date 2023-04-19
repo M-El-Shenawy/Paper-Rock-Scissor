@@ -1,7 +1,7 @@
 package com.exercise.lottoland.game.game.service.impl;
 
-import static com.exercise.lottoland.game.game.service.model.GameHelper.Move;
-import static com.exercise.lottoland.game.game.service.model.GameHelper.Result;
+import static com.exercise.lottoland.game.game.model.GameHelper.Move;
+import static com.exercise.lottoland.game.game.model.GameHelper.Result;
 
 import com.exercise.lottoland.game.game.service.IGameSolver;
 import org.junit.jupiter.api.BeforeEach;

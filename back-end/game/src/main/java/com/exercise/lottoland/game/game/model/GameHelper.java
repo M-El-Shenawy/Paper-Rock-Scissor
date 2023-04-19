@@ -1,4 +1,4 @@
-package com.exercise.lottoland.game.game.service.model;
+package com.exercise.lottoland.game.game.model;
 
 public class GameHelper {
     public enum Move {
