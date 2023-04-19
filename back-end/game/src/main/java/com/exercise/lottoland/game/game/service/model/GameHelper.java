@@ -2,7 +2,7 @@ package com.exercise.lottoland.game.game.service.model;
 
 public class GameHelper {
     public enum Move {
-        Paper,Scissors,Rock
+        PAPER,SCISSORS,ROCK
     }
 
     public enum Result {
