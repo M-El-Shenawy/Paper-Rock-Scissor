@@ -48,7 +48,7 @@ export class GameComponent implements OnInit {
 
   ngOnInit() {
     this.getGameStatistics();
-    interval(5000).subscribe(() => {
+    interval(2000).subscribe(() => {
       this.getGameStatistics();
     });
   }
