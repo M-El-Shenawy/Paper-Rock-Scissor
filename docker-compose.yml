@@ -1,10 +1,10 @@
 version: '3.8'
 services:
   angular-app:
-    image: angular-game
+    image: angular-game-app
     ports:
-      - "80:4200"
+      - "4200:4200"
   spring-boot-app:
     image: spring-boot-game
     ports:
-      - "8080:8080"
+      - "5432:8080"

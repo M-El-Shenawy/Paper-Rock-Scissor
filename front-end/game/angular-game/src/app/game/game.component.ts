@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import * as uuid from 'uuid';
 import { GameRequest } from './game.gameRequest';
 import { Choice } from './game.choice';
 import { GameResultResponse } from './game.gameResultResponse';
@@ -39,14 +38,12 @@ interface GameStatisticsResponse {
 })
 export class GameComponent implements OnInit {
   result: string | null = null;
-  uuid: string;
   roundsPlayed = 0;
   move: string | null = null;
   public gameStats: { playerOneWins: number, playerTwoWins: number, draws: number } = { playerOneWins: 0, playerTwoWins: 0, draws: 0 };
   public gameStatistics: { totalWinsForPlayer1: number, totalWinsForPlayer2: number, totalDraws: number, totalRounds: number } =
     { totalWinsForPlayer1: 0, totalWinsForPlayer2: 0, totalDraws: 0, totalRounds: 0 };
   constructor(private http: HttpClient) {
-    this.uuid = uuid.v4();
   }
 
   ngOnInit() {
@@ -62,7 +59,7 @@ export class GameComponent implements OnInit {
     const player2Move = choices[2]; // always play rock
     this.move = player1Move.toString();
     const request = new GameRequest(player1Move as Choice, player2Move as Choice);
-    this.http.post<GameResultResponse>('http://localhost:8080/api/game', request).subscribe(
+    this.http.post<GameResultResponse>('http://localhost:5432/api/game', request).subscribe(
       (response) => {
         this.result = response.winner;
         this.handleGameResponse(response.winner);
@@ -88,7 +85,7 @@ export class GameComponent implements OnInit {
   }
 
   private getGameStatistics(): void {
-    this.http.get<GameStatisticsResponse>('http://localhost:8080/api/game').subscribe(
+    this.http.get<GameStatisticsResponse>('http://localhost:5432/api/game').subscribe(
       (response) => {
         this.gameStatistics.totalWinsForPlayer1 = response.totalWinsForPlayer1;
         this.gameStatistics.totalWinsForPlayer2 = response.totalWinsForPlayer2;
