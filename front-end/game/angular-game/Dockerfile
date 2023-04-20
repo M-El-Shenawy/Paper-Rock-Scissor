@@ -1,14 +1,18 @@
-FROM node:latest as builder
+# Stage 1: Compile and Build angular codebase
 
-RUN mkdir -p /app
+# Use official node image as the base image
+FROM node:latest as build
 
-WORKDIR /app
+# Set the working directory
+WORKDIR /usr/local/app
 
-COPY . .
+# Add the source code to app
+COPY ./ /usr/local/app/
 
+# Install all the dependencies
 RUN npm install
 
-RUN npm run build --prod
+# Stage 2: Serve app with nginx server
+FROM nginx:latest
 
-
-CMD ["ng","serve","--host", "0.0.0.0"]
+COPY --from=build /usr/local/app/dist/angular-game /usr/share/nginx/html

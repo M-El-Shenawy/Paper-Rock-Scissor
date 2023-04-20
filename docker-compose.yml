@@ -3,7 +3,7 @@ services:
   angular-app:
     image: angular-game-app
     ports:
-      - "4200:4200"
+      - "5656:80"
   spring-boot-app:
     image: spring-boot-game
     ports:
