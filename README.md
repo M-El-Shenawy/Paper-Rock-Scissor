@@ -18,7 +18,7 @@ To run this application locally there's two options(using docker-compose or run 
 
 1. Open a terminal window and navigate to the root directory of the project.
 2. Run the command `cd back-end/game/ && docker build -t spring-boot-game .` to build the Docker image.
-3. Run the command `cd cd front-end/game/angular-game && docker build -t angular-game-app .` to build the Docker image.
+3. Run the command `cd cd front-end/game/angular-game && npm install && ng build && docker build -t angular-game-app .` to build the Docker image.
 4. Go back to root directory and run the command `docker-compose up` to build and start the container.
 5. Open a web browser and navigate to `http://localhost:5656` to view the app.
 
