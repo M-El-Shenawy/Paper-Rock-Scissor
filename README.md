@@ -3,7 +3,7 @@
 simple paper rock scissor game with angular and spring boot.
 ## Getting Started
 
-To run the app locally, you'll need to have Node.js and the Angular CLI installed on your machine. 
+To run the app locally, you'll need to have Docker, Java, Node.js and the Angular CLI installed on your machine. 
 
 ### Prerequisites
 
