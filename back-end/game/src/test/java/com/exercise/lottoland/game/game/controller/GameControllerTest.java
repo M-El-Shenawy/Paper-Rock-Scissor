@@ -34,31 +34,31 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class GameControllerTest {
+class GameControllerTest {
+    @InjectMocks
+    GameController gameController;
     @Autowired
     private MockMvc mockMvc;
-
     @MockBean
     private IGameSolver gameSolver;
-
     @MockBean
     private IGameStatisticsResolver gameStatisticsResolver;
 
-    @InjectMocks
-    GameController gameController;
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
         gameController = new GameController(mock(IGameSolver.class), gameStatisticsResolver);
     }
+
     @Test
     @DisplayName("Load controller")
-    public void contextLoads() throws Exception {
+    void contextLoads() throws Exception {
         assertThat(gameController).isNotNull();
     }
+
     @Test
     @DisplayName("Player one should win")
-    public void testSolveGameShouldReturnPlayerOneWins() throws Exception {
+    void testSolveGameShouldReturnPlayerOneWins() throws Exception {
 
         GameRequest request = new GameRequest();
         request.setPlayer1Move(Move.PAPER);
@@ -78,7 +78,7 @@ public class GameControllerTest {
 
     @Test
     @DisplayName("Player two should win")
-    public void testSolveGameShouldReturnPlayerTwoWins() throws Exception {
+    void testSolveGameShouldReturnPlayerTwoWins() throws Exception {
 
         GameRequest request = new GameRequest();
         request.setPlayer1Move(Move.SCISSORS);
@@ -98,7 +98,7 @@ public class GameControllerTest {
 
     @Test
     @DisplayName("Draw should happen")
-    public void testSolveGameShouldReturnDraw() throws Exception {
+    void testSolveGameShouldReturnDraw() throws Exception {
 
         GameRequest request = new GameRequest();
         request.setPlayer1Move(Move.ROCK);
