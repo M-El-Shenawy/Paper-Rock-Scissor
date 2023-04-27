@@ -44,14 +44,13 @@ public class GameController {
 
     private void handlePlayedResult(String winner) {
         switch (winner) {
-            case "PLAYER_ONE", "PLAYER_TWO":
+            case "PLAYER_ONE", "PLAYER_TWO" ->
                 players.computeIfPresent(winner, (key, player) -> {
                     player.setNumberOfRounds(player.getNumberOfRounds() + 1);
                     player.setTotalWins(player.getTotalWins() + 1);
                     return player;
                 });
-                break;
-            default:
+            default -> {
                 players.computeIfPresent(PLAYER_ONE.name(), (key, player1) -> {
                     player1.setNumberOfRounds(player1.getNumberOfRounds() + 1);
                     player1.setTotalDraws(player1.getTotalDraws() + 1);
@@ -62,7 +61,7 @@ public class GameController {
                     player2.setTotalDraws(player2.getTotalDraws() + 1);
                     return player2;
                 });
-                break;
+            }
         }
     }
 }
